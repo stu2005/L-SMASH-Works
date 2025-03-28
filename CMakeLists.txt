@@ -262,7 +262,7 @@ if (BUILD_AVS_PLUGIN OR BUILD_VS_PLUGIN)
         )
     else()
         if (GIT_FOUND)
-            set_target_properties(LSMASHSource PROPERTIES OUTPUT_NAME "lsmashsource.${ver}")
+            set_target_properties(LSMASHSource PROPERTIES OUTPUT_NAME "lsmashsource${ver}")
         endif()
 
         include(GNUInstallDirs)
