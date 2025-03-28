@@ -140,8 +140,6 @@ function (_ffmpeg_find component headername)
 endfunction ()
 
 _ffmpeg_find(avutil     avutil.h)
-_ffmpeg_find(avresample avresample.h
-  avutil)
 _ffmpeg_find(swresample swresample.h
   avutil)
 _ffmpeg_find(swscale    swscale.h
