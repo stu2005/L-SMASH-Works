@@ -58,11 +58,9 @@ find_package(FFMPEG REQUIRED COMPONENTS
 
 find_package(PkgConfig)
 
-if (PKG_CONFIG_FOUND)
-    pkg_check_modules(zlib zlib)
-endif (PKG_CONFIG_FOUND)
-find_library(libzlib NAMES libz.a z zlib.lib PATHS ${zlib_LIBRARY_DIRS})
-message(STATUS "zlib: ${libzlib}")
+# Use CMake's built-in FindZLIB module
+find_package(ZLIB REQUIRED)
+message(STATUS "Using ZLIB: ${ZLIB_LIBRARIES} (Includes: ${ZLIB_INCLUDE_DIRS})")
 
 if (ENABLE_DAV1D)
     if (PKG_CONFIG_FOUND)
@@ -194,7 +192,7 @@ if (BUILD_AVS_PLUGIN OR BUILD_VS_PLUGIN)
         FFMPEG::swscale
         FFMPEG::swresample
         FFMPEG::avutil
-        ${libzlib}
+        ZLIB::ZLIB
         ${libxxhash}
         ${liblsmash}
         ${libobuparse}

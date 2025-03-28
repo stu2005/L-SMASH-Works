@@ -51,7 +51,7 @@ target_link_libraries(LSMASHSource_indexing PRIVATE
     FFMPEG::swscale
     FFMPEG::swresample
     FFMPEG::avutil
-    ${libzlib}
+    ZLIB::ZLIB
 )
 
 if (ENABLE_DAV1D)
